@@ -52,6 +52,8 @@ show_help()
 	 echo "    signal        Wifi network and signal strength"
 	 echo "    wifi          Wifi network and signal strength"
 	 echo ""
+	 echo "    temp          Current system temperature (depends on lm-sensors or Raspian vc)"
+	 echo "    temperature   Current system temperature (depends on lm-sensors or Raspian vc)"
 	 echo ""
 	 echo "    all           Show everything above"
 	 echo ""
