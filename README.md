@@ -58,6 +58,9 @@ For temperature sensors to work, you either need /opt/vc/bin/vcgencmd from Raspb
 		signal        Wifi network and signal strength
 		wifi          Wifi network and signal strength
 
+		temp          Current system temperature (depends on lm-sensors or Raspian vc)
+		temperature   Current system temperature (depends on lm-sensors or Raspian vc)
+
 		all           Show everything above
 
 		signal-all    All detected wifi networks and signal strength (sudo only)
