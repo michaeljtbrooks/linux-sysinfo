@@ -66,10 +66,13 @@ For temperature sensors to work, you either need /opt/vc/bin/vcgencmd from Raspb
 
 ### FAQs ###
 _Why do I need this sysinfo programme?_
+
 You don't really. Unless you struggle to remember infrequently used commands like ```lsblk -f``` and ```lsb_release -a```, or the difference between ```du``` and ```df```.
 
 _What's wrong with the original unix commands?_
+
 Nothing. Except I can never remember them.
 
 _My wifi adaptor is called something other than wlan0. What do I do?_
+
 Change all mentions of ```wlan0``` to the name of your wifi adaptor in sysinfo.sh.
