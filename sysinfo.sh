@@ -7,7 +7,7 @@
 show_help()
 {
 	 echo ""
-	 echo "sysinfo - useful information about your Raspberry Pi in one place!"
+	 echo "sysinfo - useful information about your Linux system in one place!"
 	 echo "Usage:"
 	 echo "    sysinfo [item]"
 	 echo ""
@@ -44,6 +44,14 @@ show_help()
 	 echo "    hdds          Storage devices, partitions and space used"
 	 echo "    sdd           Storage devices, partitions and space used"
 	 echo "    sdds          Storage devices, partitions and space used"
+	 echo ""
+  	 echo "    mdadm         Scan for raid devices then show them alongside drives used"
+	 echo "    raid          Scan for raid devices then show them alongside drives used"
+	 echo "    raids         Scan for raid devices then show them alongside drives used"
+	 echo ""
+  	 echo "    systemctl     Show all systemd services available"
+	 echo "    services      Show all systemd services available"
+	 echo "    systemd       Show all systemd services available"
 	 echo ""
 	 echo "    memory        The amount of RAM used and free"
 	 echo "    ram           The amount of RAM used and free"
@@ -138,6 +146,15 @@ case $1 in
 	version | os | os-version | osversion)
 		uname -a
 		lsb_release -a
+		;;
+
+  	mdadm | raid | raids )
+		mdadm --detail --scan
+  		lsblk -f
+		;;
+
+    	systemctl | services | systemd )
+		systemctl list-units --type=service --all
 		;;
 	
 	all )
