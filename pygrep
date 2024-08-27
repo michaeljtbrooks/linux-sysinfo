@@ -1,0 +1,20 @@
+#!/bin/bash
+# Searches for Python / HTML / JS / CSS code in a directory without 
+
+# Check if a search term was provided
+if [ -z "$1" ]; then
+    echo "Usage: pygrep \"thing to search for\" [directory]"
+    exit 1
+fi
+
+# Define the search term
+SEARCH_TERM="$1"
+
+# Define the directory to start the search in, defaulting to current directory
+SEARCH_DIR="${2:-.}"
+
+# Find the files with the specified extensions and pass them to grep
+find "$SEARCH_DIR" \
+    \( -name "*.py" -o -name "*.js" -o -name "*.css" -o -name "*.html" \) \
+    -not \( -path "*/.idea/*" -o -path "*/.project/*" -o -path "*/env/*" -o -path "*/venv/*" -o -path "*/.git/*" \) \
+    -print0 | xargs -0 grep -in "$SEARCH_TERM"
